@@ -1,5 +1,37 @@
-$c-bg: #efefef;
-$c-alt: #e41612;
-$c-text: #444;
+//couleurs 
+$c-white : white; 
+$c-black : black;
 
-$size-text: 18px;
+
+//font utilisé 
+$font-grotesk : "Space Grotesk", sans-serif;
+
+
+// margin sur le coté gauche de la zone de travail et en haut entre le txt et la nav
+$margin :62px;
+
+
+
+// texte et titre
+$font-size-text : 30px;
+$font-size-subtitle : 49px;
+
+$space-btw-text : 24px; 
+$space-btw-title : 11px;
+$space-btw-text-img : 114px;
+
+
+// taille des éléments dans la nav
+$font-size-nav-close : 48px;
+$font-size-nav-open : 96px;
+$font-size-nav-number : 40px; 
+$font-size-nav-lang : 32px;
+
+
+// boutons suivant et précédents
+$font-size-btn : 20px;
+
+$padding-button-left-right : 20px; 
+$padding-button-top-bottom : 15px;
+
+$space-btw-button : 16px; 
