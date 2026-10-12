@@ -1,0 +1,47 @@
+{
+    "nav_home": "[00] Home",
+    "nav_artwork": "[01] Het werk",
+    "nav_author": "[02] Ryoji Ikeda",
+    "nav_art_movements": "[03] Bewegingen",
+    "nav_other_works": "[04] Andere werken",
+
+    "button_previous": "Vorige",
+    "button_next": "Volgende",
+
+    "text_follow_1": "Tekst 01/08",
+    "text_follow_2": "Tekst 02/08",
+    "text_follow_3": "Tekst 03/08",
+    "text_follow_4": "Tekst 04/08",
+    "text_follow_5": "Tekst 05/08",
+    "text_follow_6": "Tekst 06/08",
+    "text_follow_7": "Tekst 07/08",
+    "text_follow_8": "Tekst 08/08",
+
+    "artwork_title": "Test pattern [nº3] — Ryoji Ikeda",
+    "artwork_paragraph_1": "Dit werk, dat in 2010 werd gecreëerd, heeft een indrukwekkend en meeslepend audiovisueel karakter. Nauwkeurige, repetitieve geluiden worden omgezet in binaire reeksen en weergegeven door streepjescodes die met een extreem hoge snelheid voorbijflitsen.",
+    "artwork_paragraph_2": "De snelheid van de projecties stelt de menselijke waarneming op de proef en wekt de indruk van trilling en voortdurende beweging.",
+    "artwork_paragraph_3": "Het werk legt zo een verband tussen gegevens, technologieën en waarneming, door complexe informatie terug te brengen tot haar meest elementaire vorm: de binaire taal.",
+
+    "other_works_title": "De andere werken van Test Pattern",
+    "other_works_intro": "Naast de installaties bestaat het testpatroonproject ook in verschillende, meer unieke vormen.",
+    "other_works_cd": "De cd Test Pattern, die in 2008 verscheen, bevat 16 elektronische composities van bijna een uur, opgebouwd rond binaire sequenties.",
+    "other_works_book": "Het boek Test Pattern, dat in 2017 verscheen, brengt de esthetiek van de serie op papier: 150 pagina’s met zwart-witte streepjescodes.",
+
+    "author_title": "Ryoji Ikeda",
+    "author_paragraph_1": "Ryōji Ikeda, geboren in 1966 in Gifu, is een Japanse componist van elektronische muziek en beeldend kunstenaar.",
+    "author_paragraph_2": "Om deze omgevingen te creëren die bedoeld zijn om de toeschouwer volledig te omhullen, combineert hij een visuele esthetiek met een nauwkeurige geluidsarchitectuur.",
+    "author_paragraph_3": "Zijn muziek bestaat uit zuivere sinusgolven, witte ruis, klikgeluiden, glitch-geluiden en frequenties die dicht bij de grens van het menselijk gehoor liggen.",
+    "author_paragraph_4": "Het staat erom bekend dat het de normaal gesproken onzichtbare informatie in computersystemen zichtbaar maakt. Hierdoor bevindt het werk zich op het snijvlak van minimalisme, digitale kunst en data-art.",
+    "author_paragraph_5": "Maar Ryōji Ikeda staat niet alleen aan de basis van dit werk: het is programmeur Tomonaga Tokuyama die de complexe algoritmen schrijft waarmee de visie van Ryōji Ikeda kan worden vertaald en tot leven kan worden gebracht.",
+
+    "art_movements_title": "Kunstwerken en kunststromingen",
+    "minimalism_title": "Het minimalisme",
+    "minimalism_paragraph_1": "Het minimalisme, dat in de jaren zestig in de Verenigde Staten ontstond, wordt gekenmerkt door het streven naar een beperking van het gebruik van vormen en kleuren.",
+    "minimalism_paragraph_2": "In tegenstelling tot wat men zou kunnen denken, streeft het niet naar eenvoud in de basale zin van het woord, maar veeleer naar een zuinig gebruik van middelen en de afwijzing van figuratieve kunst.",
+    "minimalism_paragraph_3": "Deze kunststroming oefent ook vandaag de dag nog een grote invloed uit op de hedendaagse kunst.",
+    "digital_art_title": "Digitale kunst",
+    "digital_art_paragraph_1": "De eerste stappen van de digitale kunst werden gezet in de jaren ’50 en ’60, toen de eerste computers hun intrede deden.",
+    "digital_art_paragraph_2": "Digitale kunst omvat een breed scala aan artistieke praktijken waarbij digitale technologieën een integraal onderdeel vormen van het creatieve proces, met als doel het creëren van visuele, auditieve of interactieve kunstwerken.",
+    "data_art_title": "Data-kunst",
+    "data_art_paragraph_1": "Data Art vindt zijn oorsprong in 1970, toen het MoMa in New York de tentoonstelling „Information“ van Kynaston McShine opende. Het is een stroming die ruwe gegevens voor artistieke doeleinden gebruikt."
+}
