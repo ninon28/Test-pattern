@@ -1,0 +1,47 @@
+{
+    "nav_home": "[00] Accueil",
+    "nav_artwork": "[01] L’œuvre",
+    "nav_author": "[02] Ryoji Ikeda",
+    "nav_art_movements": "[03] Des œuvres et des courants artistiques",
+    "nav_other_works": "[04] Les autres œuvres",
+
+    "button_previous": "Précédent",
+    "button_next": "Suivant",
+
+    "text_follow_1": "Texte 01/08",
+    "text_follow_2": "Texte 02/08",
+    "text_follow_3": "Texte 03/08",
+    "text_follow_4": "Texte 04/08",
+    "text_follow_5": "Texte 05/08",
+    "text_follow_6": "Texte 06/08",
+    "text_follow_7": "Texte 07/08",
+    "text_follow_8": "Texte 08/08",
+
+    "artwork_title": "Test pattern [nº3] — Ryoji Ikeda",
+    "artwork_paragraph_1": "Conçue en 2010, cette œuvre se présente sous un format audiovisuel à la fois imposant et immersif. Des sons précis et répétitifs sont traduits en suites binaires et représentés par des codes-barres qui défilent à une vitesse extrêmement élevée.",
+    "artwork_paragraph_2": "La rapidité des projections met à l’épreuve la perception humaine et crée une impression de vibration et de mouvement continu.",
+    "artwork_paragraph_3": "L’œuvre établit ainsi un lien entre données, technologies et perception, en réduisant des informations complexes à leur forme fondamentale : le langage binaire.",
+
+    "other_works_title": "Les autres œuvres de Test Pattern",
+    "other_works_intro": "En dehors des installations, le projet test pattern existe aussi sous plusieurs formes plus uniques.",
+    "other_works_cd": "Le CD Test Pattern, sorti en 2008, rassemble 16 compositions électroniques de près d’une heure, construites autour de séquences binaires.",
+    "other_works_book": "Le livre Test Pattern, publié en 2017, transpose quant à lui l’esthétique de la série sur papier : 150 pages de codes-barres en noir et blanc.",
+
+    "author_title": "Ryoji Ikeda",
+    "author_paragraph_1": "Né en 1966 à Gifu, Ryōji Ikeda est un compositeur de musique électronique et un artiste visuel japonais.",
+    "author_paragraph_2": "Pour créer ces environnements conçus pour englober totalement le spectateur, il associe une esthétique visuelle à une architecture sonore précise.",
+    "author_paragraph_3": "Sa musique se compose d’ondes sinusoïdales pures, de bruits blancs, de clics, de sons glitch et de fréquences proches de la limite de l’audition humaine.",
+    "author_paragraph_4": "Il est reconnu pour rendre visible l’information normalement invisible contenue dans les systèmes informatiques. Cette démarche inscrit ainsi l’œuvre à la croisée du minimalisme, de l’art numérique et du Data Art.",
+    "author_paragraph_5": "Mais Ryōji Ikeda n’est pas seul derrière cette œuvre : c’est le programmeur Tomonaga Tokuyama qui écrit les algorithmes complexes capables de traduire et de donner vie à la vision de Ryōji Ikeda.",
+
+    "art_movements_title": "Des œuvres et des courants artistiques",
+    "minimalism_title": "Le Minimalisme",
+    "minimalism_paragraph_1": "Né aux États-Unis durant les années 1960, le minimalisme se caractérise par une volonté de réduire l’utilisation des formes et des couleurs.",
+    "minimalism_paragraph_2": "Contrairement à ce que l’on pourrait penser, il ne vise pas la simplicité au sens basique, mais plutôt l’économie de moyens et le refus de la figuration.",
+    "minimalism_paragraph_3": "Cet art conserve, aujourd’hui encore, une influence majeure sur la création contemporaine.",
+    "digital_art_title": "L’Art Numérique",
+    "digital_art_paragraph_1": "Les premiers pas de l’Art Numérique se font dans les années 50 et 60, lorsque les premiers ordinateurs font leur apparition.",
+    "digital_art_paragraph_2": "L’Art Numérique englobe une multitude de pratiques artistiques qui utilisent les technologies numériques comme faisant partie intégrante du processus de réalisation, le but étant de créer des œuvres visuelles, sonores ou interactives.",
+    "data_art_title": "Le Data Art",
+    "data_art_paragraph_1": "Le Data Art prend ses origines en 1970 lorsque le MoMa de New York inaugure l’exposition « Information » de Kynaston McShine. C’est un courant qui utilise des données brutes à des fins artistiques."
+}
