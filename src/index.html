@@ -40,7 +40,7 @@
                 <li><a href="">[04] D'autres oeuvres</a></li>
             </ul>
 
-            <select name="language" id="">
+            <select name="language">
                 <option value="francais">Fr</option>
                 <option value="anglais">En</option>
                 <option value="neerlandais">Nl</option>
@@ -191,6 +191,45 @@
 
             <img src="" alt="">
             <img src="" alt="">
+        </section>
+
+        <section>
+            <h2>L'expérience</h2>
+            <div class="mainContainer">
+                <div class="binary-interaction">
+                    <!-- Le formulaire laisse le navigateur gérer la validation et la soumission par Entrée. -->
+                    <form class="binary-form">
+                        <label class="binary-form__label">
+                            Transformez un mot en code-barres:
+                            <input
+                                class="binary-form__input"
+                                name="word"
+                                type="text"
+                                placeholder="..."
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+                        <button class="binary-form__submit" type="submit">Ok</button>
+                    </form>
+
+                    <!-- Cette région expose les retours de validation aux technologies d'assistance. -->
+                    <p class="binary-form__message" role="status" aria-live="polite"></p>
+
+                    <!-- Le code-barres est décoratif : sa structure n'a pas besoin d'être lue caractère par caractère. -->
+                    <div class="binary-barcode" aria-hidden="true"></div>
+
+                    <!-- Cette bande conserve dans l'ordre les codes-barres que la personne décide d'ajouter. -->
+                    <div class="binary-barcode__collection" aria-hidden="true">
+                        <div class="binary-barcode__collection-track"></div>
+                    </div>
+
+                    <!-- Le bouton final reste masqué tant que l'animation n'est pas terminée. -->
+                    <button class="binary-add-button" type="button" hidden>
+                        Ajouter ma partie au code-barres général
+                    </button>
+                </div>
+            </div>
         </section>
     </main>
 </body>
