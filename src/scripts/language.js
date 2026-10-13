@@ -1,3 +1,5 @@
+"use strict";
+
 const optionsLanguage = document.getElementById("language_select"); 
 const allNewText = document.querySelectorAll('[data-i18n]'); 
 
