@@ -1,4 +1,5 @@
 const optionsLanguage = document.getElementById("language_select"); 
+const allNewText = document.querySelectorAll('[data-i18n]'); 
 
 optionsLanguage.addEventListener('change',function(event){
     console.log(event.target.value);
@@ -9,9 +10,18 @@ optionsLanguage.addEventListener('change',function(event){
     .then(function (response) {
     return response.json();
     }).then(function (doc){
-        console.log(doc)
-    })
+        console.log(doc); 
 
+        allNewText.forEach(function(oneNewText){
+
+
+            const key = oneNewText.getAttribute('data-i18n'); 
+
+            oneNewText.textContent = doc[key]; 
+            
+        }); 
+
+    });
 
 });
 
