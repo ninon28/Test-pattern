@@ -1,2 +1,2 @@
 import './interaction.js';
-import '../styles/interaction.scss';
+import './language.js';
