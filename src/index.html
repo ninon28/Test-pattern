@@ -20,49 +20,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div> 
-                <ul>
-                    <li><img src="" alt=""></li>
-                    <li><img src="" alt=""></li>
-                    <li><img src="" alt=""></li>
-                </ul>
-
-                <img src="" alt="">
-            </div>
-           
-            <a class="menu__toggle">
-                <svg class="icon icon--burger" viewBox="0 0 100 80" width="30" height="30">
-                    <rect width="100" height="12" rx="10"></rect>
-                    <rect y="30" width="100" height="12" rx="10"></rect>
-                    <rect y="60" width="100" height="12" rx="10"></rect>
+    <header class="header">
+        <nav class="navigation">
+            <button class="menu__toggle" aria-label="Ouvrir le menu" type="button">
+                <svg class="icon icon--home" width="42" height="44" viewBox="0 0 42 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39.0833 44H25.6667V32.2902C25.6667 31.0492 25.175 29.859 24.2998 28.9814C23.4247 28.1039 22.2377 27.6109 21 27.6109C19.7623 27.6109 18.5753 28.1039 17.7002 28.9814C16.825 29.859 16.3333 31.0492 16.3333 32.2902V44H2.91667C1.30667 44 0 42.6898 0 41.0755V19.2819L18.97 0.833907C19.5113 0.299523 20.2404 0 21 0C21.7596 0 22.4887 0.299523 23.03 0.833907L42 19.2819V41.0755C42 42.6898 40.6933 44 39.0833 44ZM29.1667 40.4906H38.5V20.7558L21 3.74674L3.5 20.7675V40.5023H12.8333V32.3019C12.8333 27.7864 16.4967 24.1132 21 24.1132C25.5033 24.1132 29.1667 27.7864 29.1667 32.3019V40.5023V40.4906Z" fill="white"/>
                 </svg>
-            </a>
+            </button>
 
+            <div class="current-nav-title">[01] L’OEUVRE</div>
 
-            <ul class="menu">
-                <li class="title__nav"><a href="" data-i18n="nav_home">[00] Accueil</a></li>
-                <li class="title__nav"><a href="./index.html#artwork" data-i18n="nav_artwork">[01] L’œuvre</a></li>
-                <li class="title__nav"><a href="./index.html#author" data-i18n="nav_author">[02] Ryoji Ikeda</a></li>
-                <li class="title__nav"><a href="./index.html#movements" data-i18n="nav_art_movements">[03] Des mouvements</a></li>
-                <li class="title__nav"><a href="./index.html#other_works" data-i18n="nav_other_works">[04] D’autres œuvres</a></li>
-            </ul>
-
-            <select name="language" id="language_select">
-                <option value="french">Fr</option>
-                <option value="english">En</option>
-                <option value="dutch">Nl</option>
-                <option value="german">De</option>
-            </select>
-
+            <div class="language-picker language-picker--header">
+                <select name="language" id="language_select" class="language-select">
+                    <option value="french">FR</option>
+                    <option value="english">EN</option>
+                    <option value="dutch">NL</option>
+                    <option value="german">DE</option>
+                </select>
+                <span class="language-arrow"></span>
+            </div>
         </nav>
 
-        <div class="section-active">
-            <h1>Test Pattern</h1>
-            <img src="" alt="">
-        </div>
+        <div class="menu" id="fullpage-menu" aria-hidden="true">
+            <div class="menu__header">
+                <div class="menu__qr" role="button" tabindex="0" aria-label="Fermer le menu" title="Fermer le menu">
+                    <img class="menu__qr-img" src="assets/images/scan.png" alt="QR Code">
+                    <p class="menu__qr-text" data-i18n="qr_text">Visualiser sur votre<br>smartphone</p>
+                </div>
+                <button class="menu__close" aria-label="Fermer le menu" type="button">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 7L29 29M29 7L7 29" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
 
+            <ul class="menu__list">
+                <li class="menu__item" data-chapter="4">
+                    <a href="#other_works" class="menu__link" data-i18n="nav_other_works">
+                        <span class="menu__number">[04]</span>
+                        <span class="menu__title">D’autres œuvres</span>
+                    </a>
+                </li>
+                <li class="menu__item" data-chapter="3">
+                    <a href="#movements" class="menu__link" data-i18n="nav_art_movements">
+                        <span class="menu__number">[03]</span>
+                        <span class="menu__title">Des mouvements</span>
+                    </a>
+                </li>
+                <li class="menu__item" data-chapter="2">
+                    <a href="#author" class="menu__link" data-i18n="nav_author">
+                        <span class="menu__number">[02]</span>
+                        <span class="menu__title">Ryoji Ikeda</span>
+                    </a>
+                </li>
+                <li class="menu__item menu__item--active" data-chapter="1">
+                    <a href="#artwork" class="menu__link" data-i18n="nav_artwork">
+                        <span class="menu__number">[01]</span>
+                        <span class="menu__title">L’œuvre</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -72,12 +90,22 @@
             <p data-i18n="artwork_paragraph_1">Conçue en 2010, cette œuvre se présente sous un format audiovisuel à la fois imposant et immersif. Des sons précis et répétitifs sont traduis en suites binaires et représentés par des codes-barres qui défilent à une vitesse extrêmement élevée.</p>
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_1">Texte 01/08</p>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button" disabled>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -88,16 +116,22 @@
             <p data-i18n="artwork_paragraph_3">L'œuvre établit ainsi un lien entre données, technologies et perception, en réduisant des informations complexes à leur forme fondamentale : le langage binaire.</p>
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_2">Texte 02/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -108,16 +142,22 @@
 
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_3">Texte 03/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -127,16 +167,22 @@
 
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_4">Texte 04/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -148,16 +194,22 @@
 
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_5">Texte 05/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -168,16 +220,22 @@
 
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_6">Texte 06/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <button class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -187,16 +245,22 @@
 
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_7">Texte 07/08</p>
-                <button class="button_previous">
-                    <svg></svg>
-                    <p data-i18n="button_previous">Précédent</p>
-                </button>
-                <butto class="button_next">
-                    <svg></svg>
-                    <p data-i18n="button_next">Suivant</p>
-                </button>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button">
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -208,8 +272,22 @@
             <img src="" alt="">
             <img src="" alt="">
 
-            <div>
+            <div class="section__controls">
                 <p data-i18n="text_follow_8">Texte 08/08</p>
+                <div class="section__buttons">
+                    <button class="button_previous" type="button">
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p data-i18n="button_previous">Précédent</p>
+                    </button>
+                    <button class="button_next" type="button" disabled>
+                        <p data-i18n="button_next">Suivant</p>
+                        <svg class="button__icon" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
     </main>

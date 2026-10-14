@@ -2,24 +2,30 @@
 
 const body = document.querySelector("body");
 const menuToggle = document.querySelector(".menu__toggle");
+const menuClose = document.querySelector(".menu__close");
 const menu = document.querySelector(".menu");
-const menuLinks = document.querySelectorAll(".title__nav a");
+const menuLinks = document.querySelectorAll(".menu__link");
+const menuItems = document.querySelectorAll(".menu__item");
+const currentTitleDisplay = document.querySelector(".current-nav-title");
 
-if(menuToggle){
-    menuToggle.addEventListener("click", menuOpen); 
-
-    for(let menuLink of menuLinks){ 
-        menuLink.addEventListener("click", menuOpen);
-    }
+if (menuToggle) {
+    menuToggle.addEventListener("click", menuOpen);
 }
 
-function menuOpen(){ 
+if (menuClose) {
+    menuClose.addEventListener("click", menuOpen);
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" && menu && menu.classList.contains("menu--open")) {
+        menuOpen();
+    }
+});
+
+function menuOpen() {
     menu.classList.toggle("menu--open");
     body.classList.toggle("no-scroll");
-    console.log(body);
 }
-
-
 
 // sections 
 const sections = document.querySelectorAll(".section");
@@ -29,8 +35,34 @@ const nextButtons = document.querySelectorAll(".button_next");
 
 let currentIndex = 0;
 
-function showSection(index) {
+function getChapterIndex(sectionIndex) {
+    if (sectionIndex >= 7) return 4;
+    if (sectionIndex >= 4) return 3;
+    if (sectionIndex >= 2) return 2;
+    return 1;
+}
 
+// la c'est pour afficher le titre de la nav actuelle
+function updateCurrentNavTitle(index) {
+    const chapter = getChapterIndex(index);
+
+    menuItems.forEach(function(item) {
+        const itemChapter = parseInt(item.getAttribute("data-chapter"), 10);
+        if (itemChapter === chapter) {
+            item.classList.add("menu__item--active");
+            if (currentTitleDisplay) {
+                const link = item.querySelector(".menu__link");
+                if (link) {
+                    currentTitleDisplay.textContent = link.textContent.trim();
+                }
+            }
+        } else {
+            item.classList.remove("menu__item--active");
+        }
+    });
+}
+
+function showSection(index) {
     sections.forEach(function(section, i) {
         if (i === index) {
             section.classList.add("section-active");
@@ -38,6 +70,16 @@ function showSection(index) {
             section.classList.remove("section-active");
         }
     });
+
+    prevButtons.forEach(function(button) {
+        button.disabled = (index === 0);
+    });
+
+    nextButtons.forEach(function(button) {
+        button.disabled = (index === sections.length - 1);
+    });
+
+    updateCurrentNavTitle(index);
 }
 
 // on affiche la première section (cad 0 ) au chargement de la page 
