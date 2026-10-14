@@ -2,8 +2,9 @@
     "nav_home": "[00] Accueil",
     "nav_artwork": "[01] L’œuvre",
     "nav_author": "[02] Ryoji Ikeda",
-    "nav_art_movements": "[03] Des œuvres et des courants artistiques",
-    "nav_other_works": "[04] Les autres œuvres",
+    "nav_art_movements": "[03] Des mouvements",
+    "nav_other_works": "[04] D’autres œuvres",
+    "qr_text": "Visualiser sur votre smartphone",
 
     "button_previous": "Précédent",
     "button_next": "Suivant",
