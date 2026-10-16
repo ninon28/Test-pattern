@@ -15,11 +15,24 @@ optionsLanguage.addEventListener('change',function(event){
         console.log(doc); 
 
         allNewText.forEach(function(oneNewText){
-
-
             const key = oneNewText.getAttribute('data-i18n'); 
+            const translation = doc[key];
 
-            oneNewText.textContent = doc[key]; 
+            if (translation === undefined) {
+                return;
+            }
+
+            const menuNumber = oneNewText.querySelector('.menu__number');
+            const menuTitle = oneNewText.querySelector('.menu__title');
+
+            if (menuNumber && menuTitle) {
+                const numberEnd = translation.indexOf(']');
+                menuNumber.textContent = translation.slice(0, numberEnd + 1);
+                menuTitle.textContent = translation.slice(numberEnd + 1).trim();
+                return;
+            }
+
+            oneNewText.textContent = translation;
             
         }); 
 
