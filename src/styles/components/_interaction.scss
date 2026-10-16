@@ -1,34 +1,108 @@
-
 // La fenêtre masque la piste lorsqu'elle défile en dehors de la zone de résultat.
 .binary-barcode {
     position: relative;
+    width: 100%;
     height: 8rem;
     overflow: hidden;
+
+    // Les deux codes utilisent la même piste et la même animation de droite à gauche.
+    &__track {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        display: flex;
+        width: max-content;
+        height: 100%;
+        animation: binary-barcode-scroll linear forwards;
+    }
+
+    // Chaque bit occupe une largeur constante pour former des barres contiguës.
+    &__bit {
+        display: block;
+        flex: 0 0 8px;
+        height: 100%;
+
+        // Correspondance imposée par l'interaction : 0 est blanc, 1 est noir.
+        &--zero {
+            background-color: #fff;
+        }
+        &--one {
+            background-color: #000;
+        }
+    }
 }
 
-// La bande commune conserve toutes les parties ajoutées et masque uniquement ce qui dépasse.
-.binary-barcode__collection {
-    position: relative;
-    height: 8rem;
-    overflow: hidden;
-}
-
-// La piste complète est déplacée progressivement jusqu'à sa nouvelle extrémité droite.
-.binary-barcode__collection-track {
+.binary-interaction {
     display: flex;
-    width: max-content;
-    height: 100%;
-    transform: translateX(0);
+    flex-direction: column;
+    align-items: center;
+    gap: $space-btw-text;
 }
 
-.binary-barcode__collection-track.is-scrolling {
-    animation: binary-collection-scroll 2s linear forwards;
+// Les éléments restent dans le flux pendant le fondu; le JS applique hidden ensuite.
+.is-hidden,
+.is-visible {
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.binary-form__label{
+    font-family: $font-afacad;
+    font-size: $font-size-text;
+}
+
+.binary-form{
+    display: flex;
+    align-items: center;
+    gap: $space-btw-text;
+
+    &__input{
+        width: 200px;
+        height: 48px;
+
+        background-color: $c-white;
+        color: $c-black;
+
+        border: 1px solid $c-black;
+        cursor: pointer;
+        box-sizing: border-box;
+        white-space: nowrap;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+        height: 48px;
+        transition: transform 0.12s ease, filter 0.12s ease;
+
+    }
+    &__submit{
+        width: 48px;
+    }
 }
 
 .binary-form__submit,
 .binary-add-button {
+    font-family: $font-grotesk;
+    font-size: $font-size-btn;
+
+    background-color: $c-white;
+    color: $c-black;
+
+    border: 1px solid $c-black;
     cursor: pointer;
-    touch-action: manipulation;
+    box-sizing: border-box;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    height: 48px;
     transition: transform 0.12s ease, filter 0.12s ease;
 
     &:active {
@@ -42,67 +116,22 @@
     }
 }
 
-// Chaque partie ajoutée conserve ses barres comme un groupe distinct dans la bande.
-.binary-barcode__segment {
-    display: flex;
-    flex: 0 0 auto;
-    height: 100%;
-}
-
-// La piste commence au bord droit de la fenêtre et reste assez large pour contenir toutes ses barres.
-.binary-barcode__track {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    display: flex;
-    width: max-content;
-    height: 100%;
-    animation: binary-barcode-scroll 4s linear forwards;
-}
-
-// Chaque bit occupe une largeur constante pour former des barres contiguës.
-.binary-barcode__bit {
-    display: block;
-    flex: 0 0 8px;
-    height: 100%;
-}
-
-// Correspondance imposée par l'interaction : 0 est blanc, 1 est noir.
-.binary-barcode__bit--zero {
-    background-color: #fff;
-}
-
-.binary-barcode__bit--one {
-    background-color: #000;
-}
-
 // La translation termine après que toute la piste a traversé la fenêtre de droite à gauche.
 @keyframes binary-barcode-scroll {
     from {
-        transform: translateX(0);
+        transform: translateX(50%);
     }
 
     to {
-        transform: translateX(calc(-100% - 100vw));
-    }
-}
-
-@keyframes binary-collection-scroll {
-    from {
-        transform: translateX(var(--collection-scroll-from));
-    }
-
-    to {
-        transform: translateX(var(--collection-scroll-to));
+        transform: translateX(calc(-100% - var(--container-width, 100vw)));
     }
 }
 
 // Le mouvement reste déclenché, mais sa durée est réduite pour les personnes
 // ayant demandé au système d'éviter les animations.
 @media (prefers-reduced-motion: reduce) {
-    .binary-barcode__track,
-    .binary-barcode__collection-track.is-scrolling {
-        animation-duration: 1ms;
+    .is-hidden,
+    .is-visible {
+        transition-duration: 1ms;
     }
 }
-
