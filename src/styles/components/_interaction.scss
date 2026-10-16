@@ -1,0 +1,89 @@
+// La fenêtre masque la piste lorsqu'elle défile en dehors de la zone de résultat.
+.binary-barcode {
+    position: relative;
+    height: 8rem;
+    overflow: hidden;
+}
+
+// La bande commune conserve toutes les parties ajoutées et masque uniquement ce qui dépasse.
+.binary-barcode__collection {
+    position: relative;
+    height: 8rem;
+    overflow: hidden;
+}
+
+// La piste complète est déplacée progressivement jusqu'à sa nouvelle extrémité droite.
+.binary-barcode__collection-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    transform: translateX(0);
+}
+
+.binary-barcode__collection-track.is-scrolling {
+    animation: binary-collection-scroll 2s linear forwards;
+}
+
+// Chaque partie ajoutée conserve ses barres comme un groupe distinct dans la bande.
+.binary-barcode__segment {
+    display: flex;
+    flex: 0 0 auto;
+    height: 100%;
+}
+
+// La piste commence au bord droit de la fenêtre et reste assez large pour contenir toutes ses barres.
+.binary-barcode__track {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    width: max-content;
+    height: 100%;
+    animation: binary-barcode-scroll 4s linear forwards;
+}
+
+// Chaque bit occupe une largeur constante pour former des barres contiguës.
+.binary-barcode__bit {
+    display: block;
+    flex: 0 0 8px;
+    height: 100%;
+}
+
+// Correspondance imposée par l'interaction : 0 est blanc, 1 est noir.
+.binary-barcode__bit--zero {
+    background-color: #fff;
+}
+
+.binary-barcode__bit--one {
+    background-color: #000;
+}
+
+// La translation termine après que toute la piste a traversé la fenêtre de droite à gauche.
+@keyframes binary-barcode-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 100vw));
+    }
+}
+
+@keyframes binary-collection-scroll {
+    from {
+        transform: translateX(var(--collection-scroll-from));
+    }
+
+    to {
+        transform: translateX(var(--collection-scroll-to));
+    }
+}
+
+// Le mouvement reste déclenché, mais sa durée est réduite pour les personnes
+// ayant demandé au système d'éviter les animations.
+@media (prefers-reduced-motion: reduce) {
+    .binary-barcode__track,
+    .binary-barcode__collection-track.is-scrolling {
+        animation-duration: 1ms;
+    }
+}
