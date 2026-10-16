@@ -1,5 +1,3 @@
-
-
 .section {
     padding: $margin;
     box-sizing: border-box;
@@ -24,6 +22,24 @@
         line-height: 1.5;
         margin: 0 0 $space-btw-text 0;
         max-width: 680px;
+    }
+
+    &--mouvements{
+        background-image: url("../assets/images/fond-barCode.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 57px 0 0 0;
+        z-index: -1;
+
+        p{
+            max-width: 100%;
+        }
+
+        .section__controls{
+            background-color: $c-white;
+            padding: 0 0 57px 57px;
+        }
     }
 
     .section__controls,
@@ -150,4 +166,9 @@
         margin-top: auto;
         padding-top: 37px;
     }
+}
+
+.textMouvements {
+    background-color: $c-white;
+    padding: $space-btw-text 57px;
 }
