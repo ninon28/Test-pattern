@@ -1,108 +1,91 @@
 
-.section {
-    padding: $margin;
-    box-sizing: border-box;
+// La fenêtre masque la piste lorsqu'elle défile en dehors de la zone de résultat.
+.binary-barcode {
+    position: relative;
+    height: 8rem;
+    overflow: hidden;
+}
 
-    h2 {
-        font-size: $font-size-title;
-        font-weight: 900;
-        margin: 0 0 $space-btw-title 0;
+// La bande commune conserve toutes les parties ajoutées et masque uniquement ce qui dépasse.
+.binary-barcode__collection {
+    position: relative;
+    height: 8rem;
+    overflow: hidden;
+}
+
+// La piste complète est déplacée progressivement jusqu'à sa nouvelle extrémité droite.
+.binary-barcode__collection-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    transform: translateX(0);
+}
+
+.binary-barcode__collection-track.is-scrolling {
+    animation: binary-collection-scroll 2s linear forwards;
+}
+
+// Chaque partie ajoutée conserve ses barres comme un groupe distinct dans la bande.
+.binary-barcode__segment {
+    display: flex;
+    flex: 0 0 auto;
+    height: 100%;
+}
+
+// La piste commence au bord droit de la fenêtre et reste assez large pour contenir toutes ses barres.
+.binary-barcode__track {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    width: max-content;
+    height: 100%;
+    animation: binary-barcode-scroll 4s linear forwards;
+}
+
+// Chaque bit occupe une largeur constante pour former des barres contiguës.
+.binary-barcode__bit {
+    display: block;
+    flex: 0 0 8px;
+    height: 100%;
+}
+
+// Correspondance imposée par l'interaction : 0 est blanc, 1 est noir.
+.binary-barcode__bit--zero {
+    background-color: #fff;
+}
+
+.binary-barcode__bit--one {
+    background-color: #000;
+}
+
+// La translation termine après que toute la piste a traversé la fenêtre de droite à gauche.
+@keyframes binary-barcode-scroll {
+    from {
+        transform: translateX(0);
     }
 
-    h3 {
-        font-size: $font-size-subtitle;
-        font-weight: 400;
-        color: #707070;
-        margin: 0 0 $space-btw-text 0;
-        text-transform: uppercase;
-    }
-
-    p {
-        font-family : $font-afacad; 
-        font-size: $font-size-text;
-        line-height: 1.5;
-        margin: 0 0 $space-btw-text 0;
-        max-width: 680px;
-    }
-
-    .section__controls,
-    > div {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        p[data-i18n^="text_follow"],
-        .section__counter {
-            font-family: $font-grotesk;
-            font-size: 15px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin: 0 0 20px 0;
-        }
-
-        .section__buttons {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: $space-btw-button;
-            flex-wrap: nowrap;
-        }
-    }
-
-    .button_previous,
-    .button_next {
-        font-family: $font-grotesk;
-        font-size: $font-size-btn;
-        padding: $padding-button-top-bottom $padding-button-left-right;
-        background-color: $c-white;
-        color: $c-black;
-        border: 1px solid $c-black;
-        border-radius: 0;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        white-space: nowrap;
-        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-        line-height: 1;
-
-        .button__icon,
-        svg {
-            display: block;
-            width: 20px;
-            height: 12px;
-            flex-shrink: 0;
-            stroke: currentColor;
-            transition: stroke 0.15s ease;
-        }
-
-        p,
-        span {
-            margin: 0;
-            font-size: inherit;
-            font-family: inherit;
-            color: inherit;
-        }
-
-        &:hover {
-            background-color: $c-black;
-            color: $c-white;
-
-            p,
-            span {
-                color: $c-white;
-            }
-
-            .button__icon,
-            svg {
-                stroke: $c-white;
-            }
-        }
-
-        &:active {
-            transform: scale(0.98);
-        }
-
+    to {
+        transform: translateX(calc(-100% - 100vw));
     }
 }
+
+@keyframes binary-collection-scroll {
+    from {
+        transform: translateX(var(--collection-scroll-from));
+    }
+
+    to {
+        transform: translateX(var(--collection-scroll-to));
+    }
+}
+
+// Le mouvement reste déclenché, mais sa durée est réduite pour les personnes
+// ayant demandé au système d'éviter les animations.
+@media (prefers-reduced-motion: reduce) {
+    .binary-barcode__track,
+    .binary-barcode__collection-track.is-scrolling {
+        animation-duration: 1ms;
+    }
+}
+
