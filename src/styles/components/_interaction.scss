@@ -25,6 +25,23 @@
     animation: binary-collection-scroll 2s linear forwards;
 }
 
+.binary-form__submit,
+.binary-add-button {
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: transform 0.12s ease, filter 0.12s ease;
+
+    &:active {
+        transform: scale(0.96);
+        filter: brightness(0.78);
+    }
+
+    &:focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+    }
+}
+
 // Chaque partie ajoutée conserve ses barres comme un groupe distinct dans la bande.
 .binary-barcode__segment {
     display: flex;
