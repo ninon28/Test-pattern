@@ -29,6 +29,7 @@
     "other_works_book": "Le livre Test Pattern, publié en 2017, transpose quant à lui l’esthétique de la série sur papier : 150 pages de codes-barres en noir et blanc.",
 
     "author_title": "Ryoji Ikeda",
+    "author_subtitle": "Des œuvres",
     "author_paragraph_1": "Né en 1966 à Gifu, Ryōji Ikeda est un compositeur de musique électronique et un artiste visuel japonais.",
     "author_paragraph_2": "Pour créer ces environnements conçus pour englober totalement le spectateur, il associe une esthétique visuelle à une architecture sonore précise.",
     "author_paragraph_3": "Sa musique se compose d’ondes sinusoïdales pures, de bruits blancs, de clics, de sons glitch et de fréquences proches de la limite de l’audition humaine.",
@@ -36,6 +37,7 @@
     "author_paragraph_5": "Mais Ryōji Ikeda n’est pas seul derrière cette œuvre : c’est le programmeur Tomonaga Tokuyama qui écrit les algorithmes complexes capables de traduire et de donner vie à la vision de Ryōji Ikeda.",
 
     "art_movements_title": "Des œuvres et des courants artistiques",
+    "movement_subtitle": "Un courant",
     "minimalism_title": "Le Minimalisme",
     "minimalism_paragraph_1": "Né aux États-Unis durant les années 1960, le minimalisme se caractérise par une volonté de réduire l’utilisation des formes et des couleurs.",
     "minimalism_paragraph_2": "Contrairement à ce que l’on pourrait penser, il ne vise pas la simplicité au sens basique, mais plutôt l’économie de moyens et le refus de la figuration.",
