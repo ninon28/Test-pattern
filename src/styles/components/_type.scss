@@ -30,6 +30,12 @@ main {
     }
 }
 
+.home--text{
+    color: $c-black;
+    background-color: $c-white;
+    padding: $space-btw-text;
+}
+
 .home-screen {
     width: 100%;
     height: 100%;
@@ -42,11 +48,17 @@ main {
     justify-content: center;
     gap: 12px;
     color: $c-white;
-    background-color: $c-black;
     font-family: $font-grotesk;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.15s ease, filter 0.15s ease;
+
+    background-image: url("../assets/images/fond-accueil.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 57px 0 0 0;
+    z-index: -1;
 
     &[hidden] {
         display: none;
@@ -112,14 +124,17 @@ main {
     cursor: pointer;
     transform: translateX(-50%);
     transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+    animation: experience-breathe 2s ease-in-out infinite;
 
     &:hover {
+        animation: none;
         color: $c-white;
         background: $c-black;
         transform: translateX(-50%) scale(1.05);
     }
 
     &:active {
+        animation: none;
         color: $c-white;
         background: $c-black;
         transform: translateX(-50%) scale(0.92);
@@ -151,6 +166,23 @@ main {
         font-size: 10px;
         font-weight: 700;
         text-transform: uppercase;
+    }
+}
+
+@keyframes experience-breathe {
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-launch {
+        animation: none;
     }
 }
 
