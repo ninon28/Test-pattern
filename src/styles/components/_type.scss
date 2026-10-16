@@ -1,7 +1,20 @@
-.section {
-    display: none;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-grotesk;
+    background-color: $c-white;
+    color: $c-black;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
 }
 
-.section-active {
-    display: block; 
+.section {
+    display: none;
+    padding: $margin;
+
+    &.section-active {
+        display: block;
+    }
 }
