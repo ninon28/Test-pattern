@@ -1,24 +1,28 @@
+// Cette mémoire vit pendant toute la session et n'est pas effacée au reset.
+let generalBinaryCode = '';
+
+// Temps de défilement en millisecondes pour chaque barre binaire; augmentez cette valeur pour ralentir.
+const barcodeBitDurationMs = 50;
+
 // On attend que le HTML soit chargé avant de rechercher le formulaire et les éléments associés.
 const binaryForm = document.querySelector('.binary-form');
 
 // Le script est aussi chargé sur les pages qui pourraient ne pas contenir cette interaction.
 // Dans ce cas, il n'y a rien à initialiser et on évite toute erreur liée à un élément absent.
 if (binaryForm) {
+  const fadeFallbackMs = 400;
+  const interaction = binaryForm.closest('.binary-interaction');
   const wordInput = binaryForm.querySelector('.binary-form__input');
   const submitButton = binaryForm.querySelector('.binary-form__submit');
-  const message = document.querySelector('.binary-form__message');
-  const barcodeViewport = document.querySelector('.binary-barcode');
-  const collectionViewport = document.querySelector('.binary-barcode__collection');
-  const collectionTrack = document.querySelector('.binary-barcode__collection-track');
-  const addButton = document.querySelector('.binary-add-button');
+  const message = interaction.querySelector('.binary-form__message');
+  const barcodeViewport = interaction.querySelector('.binary-barcode:not(.binary-barcode--general)');
+  const generalBarcodeViewport = interaction.querySelector('.binary-barcode--general');
+  const addButton = interaction.querySelector('.binary-add-button');
 
-  // Ce verrou empêche un nouvel envoi uniquement pendant le défilement en cours.
+  // Le verrou empêche une nouvelle soumission tant que la séquence n'est pas terminée.
   let hasStarted = false;
-  // Le code reste disponible après l'animation individuelle, jusqu'au clic d'ajout.
+  // Le code individuel est conservé jusqu'à son ajout au code général.
   let completedBinaryCode = '';
-  // La position finale est mémorisée pour que chaque nouveau défilement continue le précédent.
-  let collectionOffset = 0;
-  let nextCollectionOffset = 0;
 
   /**
    * Convertit le texte soumis en une chaîne de bits.
@@ -37,20 +41,26 @@ if (binaryForm) {
   }
 
   /**
-   * Crée une barre par bit et associe la couleur blanche à 0, noire à 1.
-   *
-   * Chaque barre reçoit une classe dédiée afin que la correspondance bit/couleur
-   * reste explicite dans le SCSS et que le contenu de l'entrée ne soit jamais injecté en HTML.
+   * Crée la piste animée et une barre par bit, sans injecter de contenu HTML.
    *
    * @param {string} binaryCode Chaîne binaire à afficher.
-   * @param {string} segmentClass Classe qui détermine le rôle du groupe de barres.
    * @returns {HTMLDivElement} Piste contenant une barre par bit.
    */
-  function createBarcodeSegment(binaryCode, segmentClass) {
-    const segment = document.createElement('div');
+  function createBarcodeTrack(binaryCode) {
+    const track = document.createElement('div');
     const bars = document.createDocumentFragment();
 
-    segment.classList.add(segmentClass);
+    track.classList.add('binary-barcode__track');
+
+    // La piste parcourt sa propre largeur; une durée proportionnelle au nombre de barres
+    // lui donne donc la même vitesse, qu'il s'agisse du code individuel ou du code général.
+    const bitDurationMs = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 1
+      : barcodeBitDurationMs;
+    const durationSeconds = (binaryCode.length * bitDurationMs) / 700;
+
+    // La durée est définie avant l'insertion dans le DOM, donc avant le début de l'animation CSS.
+    track.style.animationDuration = `${durationSeconds}s`;
 
     for (const bit of binaryCode) {
       const bar = document.createElement('span');
@@ -63,112 +73,160 @@ if (binaryForm) {
       bars.appendChild(bar);
     }
 
-    segment.appendChild(bars);
+    track.appendChild(bars);
 
-    return segment;
+    return track;
   }
 
   /**
-   * Calcule la nouvelle position de la bande commune et l'anime jusqu'à la partie ajoutée.
+   * Affiche un élément en retirant hidden avant de lancer son fondu entrant.
    *
-   * La piste complète reste dans le DOM : seule sa position change. Le calcul
-   * limite le déplacement afin que son extrémité droite reste visible dans la fenêtre.
+   * Le reflow sépare l'état transparent de l'état visible pour que le navigateur
+   * applique bien la transition, même lorsqu'un élément vient d'être réaffiché.
+   *
+   * @param {HTMLElement} element Élément à afficher.
    */
-  function scrollCollectionToEnd() {
-    nextCollectionOffset = Math.min(
-      0,
-      collectionViewport.clientWidth - collectionTrack.scrollWidth,
-    );
+  function showElement(element) {
+    element.hidden = false;
+    element.classList.remove('is-visible');
+    element.classList.add('is-hidden');
+    void element.offsetWidth;
 
-    collectionTrack.style.setProperty('--collection-scroll-from', `${collectionOffset}px`);
-    collectionTrack.style.setProperty('--collection-scroll-to', `${nextCollectionOffset}px`);
-
-    // Retirer puis réappliquer la classe redémarre l'animation vers la nouvelle position.
-    collectionTrack.classList.remove('is-scrolling');
-    void collectionTrack.offsetWidth;
-    collectionTrack.classList.add('is-scrolling');
+    requestAnimationFrame(() => {
+      element.classList.remove('is-hidden');
+      element.classList.add('is-visible');
+    });
   }
 
   /**
-   * Affiche le bouton final uniquement lorsque la piste a fini son déplacement.
+   * Termine le fondu sortant avant de retirer l'élément du flux avec hidden.
    *
-   * L'écouteur filtre le nom de l'animation et sa cible pour ne pas réagir à un
-   * éventuel événement d'animation provenant d'un enfant ou d'un autre élément.
+   * transitionend est la source principale de synchronisation. Le délai de secours
+   * couvre les navigateurs ou contextes qui n'émettent pas cet événement.
    *
-   * @param {HTMLDivElement} track Piste qui va défiler.
+   * @param {HTMLElement} element Élément à masquer.
+   * @returns {Promise<void>} Promesse résolue après la transition et le masquage.
    */
-  function revealButtonAfterScroll(track, binaryCode) {
+  function hideElement(element) {
+    if (element.hidden) {
+      return Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+      let timeoutId;
+
+      const finishFade = () => {
+        element.removeEventListener('transitionend', handleTransitionEnd);
+        window.clearTimeout(timeoutId);
+        element.hidden = true;
+        resolve();
+      };
+
+      const handleTransitionEnd = (event) => {
+        if (event.target === element && event.propertyName === 'opacity') {
+          finishFade();
+        }
+      };
+
+      element.addEventListener('transitionend', handleTransitionEnd);
+      element.classList.remove('is-visible');
+      element.classList.add('is-hidden');
+
+      // Ce filet de sécurité évite de bloquer l'interaction si aucun événement n'arrive.
+      timeoutId = window.setTimeout(finishFade, fadeFallbackMs);
+    });
+  }
+
+  /**
+   * Attend la fin du code général, vide les codes et rétablit l'état de départ.
+   */
+  async function resetInteraction() {
+    // Les deux codes s'effacent avant que le formulaire reprenne leur place dans le flux.
+    await Promise.all([
+      hideElement(barcodeViewport),
+      hideElement(generalBarcodeViewport),
+    ]);
+
+    barcodeViewport.replaceChildren();
+    generalBarcodeViewport.replaceChildren();
+    addButton.hidden = true;
+    wordInput.value = '';
+    wordInput.disabled = false;
+    submitButton.disabled = false;
+    wordInput.setCustomValidity('');
+    message.textContent = '';
+    completedBinaryCode = '';
+    hasStarted = false;
+    showElement(binaryForm);
+    wordInput.focus();
+  }
+
+  /**
+   * Affiche le bouton d'ajout uniquement après la fin du premier défilement.
+   *
+   * L'écouteur vérifie la cible et le nom de l'animation pour ignorer les événements
+   * provenant d'un autre élément ou d'une éventuelle animation future.
+   *
+   * @param {HTMLDivElement} track Piste individuelle qui va défiler.
+   * @param {string} binaryCode Code à conserver pour l'étape d'ajout.
+   */
+  function revealAddButtonAfterScroll(track, binaryCode) {
     track.addEventListener('animationend', (event) => {
       if (event.target !== track || event.animationName !== 'binary-barcode-scroll') {
         return;
       }
 
-      addButton.hidden = false;
-      wordInput.disabled = false;
-      submitButton.disabled = false;
-      hasStarted = false;
+      showElement(addButton);
       completedBinaryCode = binaryCode;
-      message.textContent = 'Votre code-barres est prêt.';
     }, { once: true });
   }
 
-  // Après chaque défilement collectif, on conserve sa position comme point de départ du suivant.
-  collectionTrack.addEventListener('animationend', (event) => {
-    if (event.target !== collectionTrack || event.animationName !== 'binary-collection-scroll') {
-      return;
-    }
-
-    collectionOffset = nextCollectionOffset;
-    collectionTrack.style.transform = `translateX(${collectionOffset}px)`;
-    collectionTrack.classList.remove('is-scrolling');
-
-    // Ne remplace pas l'état affiché si la personne a déjà lancé la conversion suivante.
-    if (!hasStarted) {
-      message.textContent = 'Votre partie a été ajoutée. Vous pouvez saisir un nouveau mot.';
-    }
-  });
-
-  // Le bouton ajoute le code-barres individuel terminé, puis réinitialise la saisie.
+  // Le clic ajoute la nouvelle partie à la mémoire puis affiche tout le code général.
   addButton.addEventListener('click', () => {
     if (!completedBinaryCode) {
       return;
     }
 
-    const segment = createBarcodeSegment(completedBinaryCode, 'binary-barcode__segment');
-
-    collectionTrack.appendChild(segment);
+    generalBinaryCode += completedBinaryCode;
     completedBinaryCode = '';
-    addButton.hidden = true;
-    wordInput.value = '';
-    wordInput.disabled = false;
-    submitButton.disabled = false;
-    wordInput.focus();
 
-    // La bande défile vers la nouvelle partie en gardant les précédentes dans leur ordre.
-    scrollCollectionToEnd();
-    message.textContent = 'Votre partie a été ajoutée à la bande commune.';
+    // Le code général démarre tout de suite; le bouton fond en parallèle.
+    void hideElement(addButton);
+    showElement(generalBarcodeViewport);
+
+    // La piste est reconstruite depuis la mémoire pour inclure toutes les participations.
+    const track = createBarcodeTrack(generalBinaryCode);
+
+    // L'écouteur est prêt avant l'insertion de la piste et le démarrage de l'animation.
+    track.addEventListener('animationend', (event) => {
+      if (event.target !== track || event.animationName !== 'binary-barcode-scroll') {
+        return;
+      }
+
+      void resetInteraction();
+    }, { once: true });
+
+    generalBarcodeViewport.replaceChildren(track);
   });
 
-  // Efface l'erreur de champ dès que la personne corrige sa saisie.
+  // Efface l'erreur de validation dès que la personne corrige sa saisie.
   wordInput.addEventListener('input', () => {
     wordInput.setCustomValidity('');
     message.textContent = '';
   });
 
-  // La soumission native du formulaire se déclenche par Entrée ou via son bouton.
+  // La soumission native du formulaire fonctionne par Entrée ou via son bouton.
   binaryForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    // Le formulaire ne doit pas lancer une deuxième animation avant que le
-    // défilement en cours soit terminé.
+    // Une soumission ne peut pas relancer la séquence avant que le reset soit terminé.
     if (hasStarted) {
       return;
     }
 
     const word = wordInput.value.trim();
 
-    // L'attribut HTML « required » bloque une chaîne vide, mais pas une saisie
-    // composée uniquement d'espaces ; ce contrôle couvre également ce dernier cas.
+    // L'attribut HTML « required » bloque une chaîne vide, mais pas une saisie composée d'espaces.
     if (!word) {
       wordInput.setCustomValidity('Veuillez saisir un mot.');
       wordInput.reportValidity();
@@ -177,17 +235,17 @@ if (binaryForm) {
     }
 
     hasStarted = true;
-    wordInput.disabled = true;
-    submitButton.disabled = true;
-    addButton.hidden = true;
+    message.textContent = '';
 
     const binaryCode = wordToBinary(word);
-    const track = createBarcodeSegment(binaryCode, 'binary-barcode__track');
+    const track = createBarcodeTrack(binaryCode);
 
-    // L'écouteur est installé avant l'insertion de la piste pour être prêt dès
-    // le démarrage de l'animation CSS.
-    revealButtonAfterScroll(track, binaryCode);
+    // L'écouteur est installé avant l'insertion pour capter la fin de l'animation CSS.
+    revealAddButtonAfterScroll(track, binaryCode);
+
+    // Le code individuel démarre au clic; le formulaire fond en parallèle.
+    showElement(barcodeViewport);
     barcodeViewport.replaceChildren(track);
-    message.textContent = 'Conversion en cours.';
+    void hideElement(binaryForm);
   });
 }
