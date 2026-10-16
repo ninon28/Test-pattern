@@ -1,0 +1,109 @@
+
+
+.section {
+    padding: $margin;
+    box-sizing: border-box;
+
+    h2 {
+        font-size: $font-size-title;
+        font-weight: 900;
+        margin: 0 0 $space-btw-title 0;
+    }
+
+    h3 {
+        font-size: $font-size-subtitle;
+        font-weight: 400;
+        color: #707070;
+        margin: 0 0 $space-btw-text 0;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-family : $font-afacad; 
+        font-size: $font-size-text;
+        line-height: 1.5;
+        margin: 0 0 $space-btw-text 0;
+        max-width: 680px;
+    }
+
+    .section__controls,
+    > div {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p[data-i18n^="text_follow"],
+        .section__counter {
+            font-family: $font-grotesk;
+            font-size: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0 0 20px 0;
+        }
+
+        .section__buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: $space-btw-button;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .button_previous,
+    .button_next {
+        font-family: $font-grotesk;
+        font-size: $font-size-btn;
+        padding: $padding-button-top-bottom $padding-button-left-right;
+        background-color: $c-white;
+        color: $c-black;
+        border: 1px solid $c-black;
+        border-radius: 0;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        white-space: nowrap;
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+        line-height: 1;
+
+        .button__icon,
+        svg {
+            display: block;
+            width: 20px;
+            height: 12px;
+            flex-shrink: 0;
+            stroke: currentColor;
+            transition: stroke 0.15s ease;
+        }
+
+        p,
+        span {
+            margin: 0;
+            font-size: inherit;
+            font-family: inherit;
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: $c-black;
+            color: $c-white;
+
+            p,
+            span {
+                color: $c-white;
+            }
+
+            .button__icon,
+            svg {
+                stroke: $c-white;
+            }
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+
+    }
+}
