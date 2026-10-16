@@ -85,6 +85,12 @@
     </header>
 
     <main>
+        <button class="home-screen" type="button">
+            <span class="home-screen__title" data-i18n="artwork_title">Test pattern [nº3]</span>
+            <span class="home-screen__author" data-i18n="author_title">Ryoji Ikeda</span>
+            <span class="home-screen__start" data-i18n="home_start">Toucher pour commencer</span>
+        </button>
+
         <section id="artwork" class="section">
             <h2 data-i18n="artwork_title">Test Pattern [n°3]</h2>
             <h3 data-i18n="author_title">Ryoji Ikeda</h3>
@@ -266,6 +272,9 @@
         </section>
 
         <section id="other_works" class="section">
+            <h2 data-i18n="data_art_title">Des variantes</h2>
+            <h3 data-i18n="movement_subtitle">cd & livres</h3>
+
             <p data-i18n="other_works_intro">En dehors des installations, le projet test pattern existe aussi sous plusieurs formes plus uniques.</p>
             <p data-i18n="other_works_cd">Le CD Test Pattern, sorti en 2008, rassemble 16 compositions électroniques de près d'une heure, construites autour de séquences binaires.</p>
             <p data-i18n="other_works_book">Le livre Test Pattern, publié en 2017, transpose quant à lui l'esthétique de la série sur papier : 150 pages de codes barres en noir et blanc.</p>
@@ -282,13 +291,27 @@
                         </svg>
                         <p data-i18n="button_previous">Précédent</p>
                     </button>
+                    <button class="button_finish" type="button">
+                        <span data-i18n="button_finish">Terminer</span>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>L'expérience</h2>
+        <button class="experience-launch" type="button" aria-haspopup="dialog" aria-controls="experience-dialog">
+            <span class="experience-launch__mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            <span class="experience-launch__label" data-i18n="experience_label">Expérience</span>
+        </button>
+
+        <dialog class="experience-overlay" id="experience-dialog" aria-labelledby="experience-title">
             <div class="mainContainer">
+                <div class="experience-panel__header">
+                    <h2 id="experience-title" data-i18n="experience_title">L'expérience interactive</h2>
+                    <button class="experience-close" type="button">
+                        <span aria-hidden="true">×</span>
+                        <span class="visually-hidden" data-i18n="experience_close">Fermer</span>
+                    </button>
+                </div>
                 <div class="binary-interaction">
                     <!-- Le formulaire laisse le navigateur gérer la validation et la soumission par Entrée. -->
                     <form class="binary-form">
@@ -323,7 +346,7 @@
                     </button>
                 </div>
             </div>
-        </section>
+        </dialog>
     </main>
 </body>
 </html>

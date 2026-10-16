@@ -5,9 +5,14 @@
     "nav_art_movements": "[03] Bewegingen",
     "nav_other_works": "[04] Andere werken",
     "qr_text": "Bekijk op je smartphone",
+    "home_start": "Tik om te beginnen",
+    "experience_label": "Ervaring",
+    "experience_title": "Interactieve ervaring",
+    "experience_close": "Sluiten",
 
     "button_previous": "Vorige",
     "button_next": "Volgende",
+    "button_finish": "Voltooien",
 
     "text_follow_1": "Tekst 01/08",
     "text_follow_2": "Tekst 02/08",

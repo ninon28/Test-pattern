@@ -5,9 +5,14 @@
     "nav_art_movements": "[03] Des mouvements",
     "nav_other_works": "[04] D’autres œuvres",
     "qr_text": "Visualiser sur votre smartphone",
+    "home_start": "Toucher pour commencer",
+    "experience_label": "Expérience",
+    "experience_title": "L'expérience interactive",
+    "experience_close": "Fermer",
 
     "button_previous": "Précédent",
     "button_next": "Suivant",
+    "button_finish": "Terminer",
 
     "text_follow_1": "Texte 01/08",
     "text_follow_2": "Texte 02/08",
