@@ -244,16 +244,14 @@
         }
 
         .menu__number {
-            font-size: clamp(24px, 3.5vw, $font-size-nav-number);
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: $font-size-nav-number;
+            font-weight: 900;
             flex-shrink: 0;
         }
 
         .menu__title {
-            font-size: clamp(28px, 5.6vw, $font-size-nav-open);
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: $font-size-nav-open;
+            font-weight: 900;
             line-height: 1;
             white-space: nowrap;
         }
