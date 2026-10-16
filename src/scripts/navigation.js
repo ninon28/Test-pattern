@@ -7,6 +7,11 @@ const menu = document.querySelector(".menu");
 const menuLinks = document.querySelectorAll(".menu__link");
 const menuItems = document.querySelectorAll(".menu__item");
 const currentTitleDisplay = document.querySelector(".current-nav-title");
+const homeScreen = document.querySelector(".home-screen");
+const finishButton = document.querySelector(".button_finish");
+const experienceLaunch = document.querySelector(".experience-launch");
+const experienceOverlay = document.querySelector(".experience-overlay");
+const experienceClose = document.querySelector(".experience-close");
 
 if (menuToggle) {
     menuToggle.addEventListener("click", menuOpen);
@@ -34,6 +39,32 @@ const prevButtons = document.querySelectorAll(".button_previous");
 const nextButtons = document.querySelectorAll(".button_next");
 
 let currentIndex = 0;
+
+function showHome() {
+    currentIndex = 0;
+    sections.forEach(function(section) {
+        section.classList.remove("section-active");
+    });
+    menuItems.forEach(function(item) {
+        item.classList.remove("menu__item--active");
+    });
+    homeScreen.hidden = false;
+    currentTitleDisplay.hidden = true;
+}
+
+experienceLaunch.addEventListener("click", function() {
+    experienceOverlay.showModal();
+});
+
+experienceClose.addEventListener("click", function() {
+    experienceOverlay.close();
+});
+
+experienceOverlay.addEventListener("click", function(event) {
+    if (event.target === experienceOverlay) {
+        experienceOverlay.close();
+    }
+});
 
 function getChapterIndex(sectionIndex) {
     if (sectionIndex >= 7) return 4;
@@ -63,6 +94,9 @@ function updateCurrentNavTitle(index) {
 }
 
 function showSection(index) {
+    homeScreen.hidden = true;
+    currentTitleDisplay.hidden = false;
+
     sections.forEach(function(section, i) {
         if (i === index) {
             section.classList.add("section-active");
@@ -82,8 +116,21 @@ function showSection(index) {
     updateCurrentNavTitle(index);
 }
 
-// on affiche la première section (cad 0 ) au chargement de la page 
-showSection(currentIndex);
+document.addEventListener("click", function(event) {
+    if (homeScreen.hidden || event.target.closest(".language-picker, .menu__toggle, .menu, .experience-launch, .experience-overlay")) {
+        return;
+    }
+
+    currentIndex = 0;
+    showSection(currentIndex);
+});
+
+finishButton.addEventListener("click", function(event) {
+    event.stopPropagation();
+    showHome();
+});
+
+showHome();
 
 nextButtons.forEach(function(button) {
     button.addEventListener("click", function() {
