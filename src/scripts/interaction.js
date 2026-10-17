@@ -1,3 +1,5 @@
+"use strict";
+
 // Cette mémoire vit pendant toute la session et n'est pas effacée au reset.
 let generalBinaryCode = '';
 
