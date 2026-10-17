@@ -8,8 +8,8 @@
 
 - Copy `src/*.html` to `dist` folder.
 - Copy `src/assets/*/` to `dist/assets/*/` folder.
-- Compile SASS `src/styles/app.scss` to `dist/styles` folder.
-- Bundle and transpile JS `src/scripts/app.js` to `dist/scripts` folder.
+- Compile `src/styles/app.scss` and `src/styles/smartphone.scss` to the `dist/styles` folder.
+- Bundle and transpile `src/scripts/app.js` and `src/scripts/smartphone.js` to the `dist/scripts` folder.
 - Create sources maps.
 - Run a dev web server with browsersync.
 
