@@ -14,8 +14,8 @@
     <meta property="og:image:width" content="1800">
     <meta property="og:image:height" content="945">
     
-    <link rel="stylesheet" href="../styles/app.css">
-    <script src="scripts/app.js" defer></script>
+    <link rel="stylesheet" href="../styles/smartphone.css">
+    <script src="../scripts/smartphone.js" defer></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -24,9 +24,7 @@
     <header class="header">
         <nav class="navigation">
             <button class="menu__toggle" aria-label="Ouvrir le menu" type="button">
-                <svg class="icon icon--home" width="42" height="44" viewBox="0 0 42 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M39.0833 44H25.6667V32.2902C25.6667 31.0492 25.175 29.859 24.2998 28.9814C23.4247 28.1039 22.2377 27.6109 21 27.6109C19.7623 27.6109 18.5753 28.1039 17.7002 28.9814C16.825 29.859 16.3333 31.0492 16.3333 32.2902V44H2.91667C1.30667 44 0 42.6898 0 41.0755V19.2819L18.97 0.833907C19.5113 0.299523 20.2404 0 21 0C21.7596 0 22.4887 0.299523 23.03 0.833907L42 19.2819V41.0755C42 42.6898 40.6933 44 39.0833 44ZM29.1667 40.4906H38.5V20.7558L21 3.74674L3.5 20.7675V40.5023H12.8333V32.3019C12.8333 27.7864 16.4967 24.1132 21 24.1132C25.5033 24.1132 29.1667 27.7864 29.1667 32.3019V40.5023V40.4906Z" fill="white"/>
-                </svg>
+                <svg class="icon icon--home" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.1326 25.6667H17.3062V18.8359C17.3062 18.112 17.0194 17.4177 16.5089 16.9058C15.9984 16.394 15.306 16.1064 14.584 16.1064C13.862 16.1064 13.1696 16.394 12.6591 16.9058C12.1486 17.4177 11.8618 18.112 11.8618 18.8359V25.6667H4.03537C3.09621 25.6667 2.33398 24.9024 2.33398 23.9607V11.2478L13.3998 0.486446C13.7156 0.174722 14.1409 0 14.584 0C15.0271 0 15.4524 0.174722 15.7682 0.486446L26.834 11.2478V23.9607C26.834 24.9024 26.0718 25.6667 25.1326 25.6667ZM19.3479 23.6195H24.7923V12.1076L14.584 2.1856L4.37565 12.1144V23.6263H9.8201V18.8428C9.8201 16.2087 11.957 14.066 14.584 14.066C17.2109 14.066 19.3479 16.2087 19.3479 18.8428V23.6263V23.6195Z" fill="white"/></svg>
             </button>
 
             <div class="current-nav-title">[01] L’OEUVRE</div>
@@ -43,18 +41,6 @@
         </nav>
 
         <div class="menu" id="fullpage-menu" aria-hidden="true">
-            <div class="menu__header">
-                <div class="menu__qr" role="button" tabindex="0" aria-label="Fermer le menu" title="Fermer le menu">
-                    <img class="menu__qr-img" src="assets/images/scan.png" alt="QR Code">
-                    <p class="menu__qr-text" data-i18n="qr_text">Visualisez sur votre<br>smartphone</p>
-                </div>
-                <button class="menu__close" aria-label="Fermer le menu" type="button">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 7L29 29M29 7L7 29" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                </button>
-            </div>
-
             <ul class="menu__list">
                 <li class="menu__item" data-chapter="4">
                     <a href="#other_works" class="menu__link" data-i18n="nav_other_works">
