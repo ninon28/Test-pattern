@@ -1,6 +1,7 @@
 "use strict";
 
 const body = document.querySelector("body");
+const navigation = document.querySelector(".navigation");
 const menuToggle = document.querySelector(".menu__toggle");
 const menuClose = document.querySelector(".menu__close");
 const menu = document.querySelector(".menu");
@@ -14,22 +15,40 @@ const experienceOverlay = document.querySelector(".experience-overlay");
 const experienceClose = document.querySelector(".experience-close");
 
 if (menuToggle) {
-    menuToggle.addEventListener("click", menuOpen);
+    menuToggle.addEventListener("click", showHome);
+}
+
+if (navigation) {
+    navigation.addEventListener("click", function(event) {
+        if (!(event.target instanceof Element) || event.target.closest(".menu__toggle, .language-picker")) {
+            return;
+        }
+
+        menuOpen(true);
+    });
 }
 
 if (menuClose) {
-    menuClose.addEventListener("click", menuOpen);
+    menuClose.addEventListener("click", function() {
+        menuOpen(false);
+    });
 }
 
 document.addEventListener("keydown", function(e) {
     if (e.key === "Escape" && menu && menu.classList.contains("menu--open")) {
-        menuOpen();
+        menuOpen(false);
     }
 });
 
-function menuOpen() {
-    menu.classList.toggle("menu--open");
-    body.classList.toggle("no-scroll");
+function menuOpen(isOpen) {
+    const shouldOpen = typeof isOpen === "boolean"
+        ? isOpen
+        : !menu.classList.contains("menu--open");
+
+    menu.classList.toggle("menu--open", shouldOpen);
+    menu.setAttribute("aria-hidden", String(!shouldOpen));
+    body.classList.toggle("no-scroll", shouldOpen);
+    menuToggle.setAttribute("aria-expanded", String(shouldOpen));
 }
 
 // sections 
@@ -50,6 +69,7 @@ function showHome() {
     });
     homeScreen.hidden = false;
     currentTitleDisplay.hidden = true;
+    menuOpen(false);
 }
 
 experienceLaunch.addEventListener("click", function() {
@@ -117,7 +137,7 @@ function showSection(index) {
 }
 
 document.addEventListener("click", function(event) {
-    if (homeScreen.hidden || event.target.closest(".language-picker, .menu__toggle, .menu, .experience-launch, .experience-overlay")) {
+    if (homeScreen.hidden || event.target.closest(".navigation, .menu, .experience-launch, .experience-overlay")) {
         return;
     }
 
