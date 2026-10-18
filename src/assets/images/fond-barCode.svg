@@ -1,76 +1,76 @@
 <svg width="1194" height="834" viewBox="0 0 1194 834" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_354_188)">
-<rect width="834" height="1194" transform="matrix(0 1 -1 0 1194 0)" fill="white"/>
-<rect width="1225" height="14" transform="matrix(-1 0 0 1 1194 820)" fill="black"/>
-<rect width="1225" height="14" transform="matrix(-1 0 0 1 1194 789)" fill="black"/>
-<rect width="1210" height="15" transform="matrix(-1 0 0 1 1179 774)" fill="white"/>
-<rect width="1225" height="14" transform="matrix(-1 0 0 1 1194 760)" fill="black"/>
-<rect width="1210" height="13" transform="matrix(-1 0 0 1 1179 747)" fill="white"/>
-<rect width="1225" height="13" transform="matrix(-1 0 0 1 1194 747)" fill="black"/>
-<rect width="1210" height="16" transform="matrix(-1 0 0 1 1179 731)" fill="white"/>
-<rect width="1225" height="13" transform="matrix(-1 0 0 1 1194 718)" fill="black"/>
-<rect width="1210" height="17" transform="matrix(-1 0 0 1 1179 701)" fill="white"/>
-<rect width="1225" height="29" transform="matrix(-1 0 0 1 1194 689)" fill="black"/>
-<rect width="1225" height="14" transform="matrix(-1 0 0 -1 1194 552)" fill="black"/>
-<rect width="1210" height="16" transform="matrix(-1 0 0 -1 1179 568)" fill="white"/>
-<rect width="1227" height="14" transform="matrix(-1 0 0 -1 1194 575)" fill="black"/>
-<rect width="1210" height="16" transform="matrix(-1 0 0 -1 1179 598)" fill="white"/>
-<rect width="1225" height="15" transform="matrix(-1 0 0 -1 1194 613)" fill="black"/>
-<rect width="1210" height="12" transform="matrix(-1 0 0 -1 1179 625)" fill="white"/>
-<rect width="1225" height="12" transform="matrix(-1 0 0 -1 1194 625)" fill="black"/>
-<rect width="1210" height="15" transform="matrix(-1 0 0 -1 1179 640)" fill="white"/>
-<rect width="1225" height="16" transform="matrix(-1 0 0 -1 1194 656)" fill="black"/>
-<rect width="1210" height="15" transform="matrix(-1 0 0 -1 1179 671)" fill="white"/>
-<rect width="1225" height="15" transform="matrix(-1 0 0 -1 1194 671)" fill="black"/>
-<rect width="1225" height="6" transform="matrix(-1 0 0 1 1194 513)" fill="black"/>
-<rect width="1210" height="13" transform="matrix(-1 0 0 1 1179 496)" fill="white"/>
-<rect width="1227" height="15" transform="matrix(-1 0 0 1 1194 481)" fill="black"/>
-<rect width="1209" height="13" transform="matrix(-1 0 0 1 1176 466)" fill="white"/>
-<rect width="1227" height="15" transform="matrix(-1 0 0 1 1194 451)" fill="black"/>
-<rect width="1209" height="13" transform="matrix(-1 0 0 1 1176 438)" fill="white"/>
-<rect width="1227" height="13" transform="matrix(-1 0 0 1 1194 438)" fill="black"/>
-<rect width="1227" height="53" transform="matrix(-1 0 0 1 1194 167)" fill="black"/>
-<rect width="1211" height="15" transform="matrix(-1 0 0 1 1174 152)" fill="white"/>
-<rect width="1231" height="16" transform="matrix(-1 0 0 1 1194 136)" fill="black"/>
-<rect width="1211" height="14" transform="matrix(-1 0 0 1 1174 122)" fill="white"/>
-<rect width="1231" height="15" transform="matrix(-1 0 0 1 1194 107)" fill="black"/>
-<rect width="1211" height="14" transform="matrix(-1 0 0 1 1174 93)" fill="white"/>
-<rect width="1231" height="14" transform="matrix(-1 0 0 1 1194 93)" fill="black"/>
-<rect width="1209" height="15" transform="matrix(-1 0 0 1 1176 423)" fill="white"/>
-<rect width="1227" height="15" transform="matrix(-1 0 0 1 1194 408)" fill="black"/>
-<rect width="1209" height="15" transform="matrix(-1 0 0 1 1176 393)" fill="white"/>
-<rect width="1227" height="15" transform="matrix(-1 0 0 1 1194 393)" fill="black"/>
-<g clip-path="url(#clip1_354_188)">
-<rect width="1227" height="14" transform="matrix(-1 0 0 1 1194 379)" fill="black"/>
-<rect width="576" height="52" transform="matrix(-1 0 0 1 1193.87 379)" fill="black"/>
+<g clip-path="url(#clip0_377_181)">
+<mask id="mask0_377_181" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1194" height="834">
+<path d="M1194 834V0H0V834H1194Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_377_181)">
+<path d="M1194 834V0H0V834H1194Z" fill="white"/>
+<path d="M-31 820H1194V834H-31V820Z" fill="black"/>
+<path d="M-31 789H1194V803H-31V789Z" fill="black"/>
+<path d="M-31 774H1179V789H-31V774Z" fill="white"/>
+<path d="M-31 760H1194V774H-31V760Z" fill="black"/>
+<path d="M-31 747H1179V760H-31V747Z" fill="white"/>
+<path d="M-31 747H1194V760H-31V747Z" fill="black"/>
+<path d="M-31 731H1179V747H-31V731Z" fill="white"/>
+<path d="M-31 718H1194V731H-31V718Z" fill="black"/>
+<path d="M-31 701H1179V718H-31V701Z" fill="white"/>
+<path d="M-31 689H1194V718H-31V689Z" fill="black"/>
+<path d="M-31 552H1194V538H-31V552Z" fill="black"/>
+<path d="M-31 568H1179V552H-31V568Z" fill="white"/>
+<path d="M-33 575H1194V561H-33V575Z" fill="black"/>
+<path d="M-31 598H1179V582H-31V598Z" fill="white"/>
+<path d="M-31 613H1194V598H-31V613Z" fill="black"/>
+<path d="M-31 625H1179V613H-31V625Z" fill="white"/>
+<path d="M-31 625H1194V613H-31V625Z" fill="black"/>
+<path d="M-31 640H1179V625H-31V640Z" fill="white"/>
+<path d="M-31 656H1194V640H-31V656Z" fill="black"/>
+<path d="M-31 671H1179V656H-31V671Z" fill="white"/>
+<path d="M-31 671H1194V656H-31V671Z" fill="black"/>
+<path d="M-31 513H1194V519H-31V513Z" fill="black"/>
+<path d="M-31 496H1179V509H-31V496Z" fill="white"/>
+<path d="M-33 481H1194V496H-33V481Z" fill="black"/>
+<path d="M-33 466H1176V479H-33V466Z" fill="white"/>
+<path d="M-33 451H1194V466H-33V451Z" fill="black"/>
+<path d="M-33 438H1176V451H-33V438Z" fill="white"/>
+<path d="M-33 438H1194V451H-33V438Z" fill="black"/>
+<path d="M-33 167H1194V220H-33V167Z" fill="black"/>
+<path d="M-37 152H1174V167H-37V152Z" fill="white"/>
+<path d="M-37 122H1174V136H-37V122Z" fill="white"/>
+<path d="M-37 93H1174V107H-37V93Z" fill="white"/>
+<path d="M-33 423H1176V438H-33V423Z" fill="white"/>
+<path d="M-33 408H1194V423H-33V408Z" fill="black"/>
+<path d="M-33 393H1176V408H-33V393Z" fill="white"/>
+<path d="M-33 393H1194V408H-33V393Z" fill="black"/>
+<mask id="mask1_377_181" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-33" y="379" width="1227" height="14">
+<path d="M-33 379H1194V393H-33V379Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_377_181)">
+<path d="M-33 379H1194V393H-33V379Z" fill="black"/>
+<path d="M617.869 379H1193.87V431H617.869V379Z" fill="black"/>
 </g>
-<rect width="1227" height="14" transform="matrix(-1 0 0 -1 1194 244)" fill="black"/>
-<rect width="1231" height="43" transform="matrix(-1 0 0 -1 1194 41)" fill="black"/>
-<rect width="1231" height="25" transform="matrix(-1 0 0 -1 1194 81)" fill="black"/>
-<rect width="1209" height="15" transform="matrix(-1 0 0 -1 1176 259)" fill="white"/>
-<rect width="1227" height="16" transform="matrix(-1 0 0 -1 1194 275)" fill="black"/>
-<rect width="1209" height="13" transform="matrix(-1 0 0 -1 1176 288)" fill="white"/>
-<rect width="1227" height="16" transform="matrix(-1 0 0 -1 1194 304)" fill="black"/>
-<rect width="1209" height="13" transform="matrix(-1 0 0 -1 1176 317)" fill="white"/>
-<rect width="1227" height="13" transform="matrix(-1 0 0 -1 1194 317)" fill="black"/>
-<rect width="1209" height="16" transform="matrix(-1 0 0 -1 1176 333)" fill="white"/>
-<rect width="1227" height="14" transform="matrix(-1 0 0 -1 1194 347)" fill="black"/>
-<rect width="1209" height="14" transform="matrix(-1 0 0 -1 1176 361)" fill="white"/>
-<rect width="1227" height="14" transform="matrix(-1 0 0 -1 1194 361)" fill="black"/>
-<g clip-path="url(#clip2_354_188)">
-<rect width="1227" height="18" transform="matrix(-1 0 0 -1 1194 379)" fill="black"/>
-<rect width="576" height="52" transform="matrix(-1 0 0 -1 1193.87 379)" fill="black"/>
+<path d="M-33 244H1194V230H-33V244Z" fill="black"/>
+<path d="M-33 259H1176V244H-33V259Z" fill="white"/>
+<path d="M-33 275H1194V259H-33V275Z" fill="black"/>
+<path d="M-33 288H1176V275H-33V288Z" fill="white"/>
+<path d="M-33 304H1194V288H-33V304Z" fill="black"/>
+<path d="M-33 317H1176V304H-33V317Z" fill="white"/>
+<path d="M-33 317H1194V304H-33V317Z" fill="black"/>
+<path d="M-33 333H1176V317H-33V333Z" fill="white"/>
+<path d="M-33 347H1194V333H-33V347Z" fill="black"/>
+<path d="M-33 361H1176V347H-33V361Z" fill="white"/>
+<path d="M-33 361H1194V347H-33V361Z" fill="black"/>
+<mask id="mask2_377_181" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-33" y="361" width="1227" height="18">
+<path d="M-33 379H1194V361H-33V379Z" fill="white"/>
+</mask>
+<g mask="url(#mask2_377_181)">
+<path d="M-33 379H1194V361H-33V379Z" fill="black"/>
+<path d="M617.869 379H1193.87V327H617.869V379Z" fill="black"/>
+</g>
 </g>
 </g>
 <defs>
-<clipPath id="clip0_354_188">
-<rect width="834" height="1194" fill="white" transform="matrix(0 1 -1 0 1194 0)"/>
-</clipPath>
-<clipPath id="clip1_354_188">
-<rect width="1227" height="14" fill="white" transform="matrix(-1 0 0 1 1194 379)"/>
-</clipPath>
-<clipPath id="clip2_354_188">
-<rect width="1227" height="18" fill="white" transform="matrix(-1 0 0 -1 1194 379)"/>
+<clipPath id="clip0_377_181">
+<rect width="1194" height="834" fill="white"/>
 </clipPath>
 </defs>
 </svg>
