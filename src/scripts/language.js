@@ -18,7 +18,9 @@ function applyTranslations(doc) {
 
         const attribute = oneNewText.getAttribute("data-i18n-attr");
         if (attribute) {
-            oneNewText.setAttribute(attribute, translation);
+            attribute.split(/\s+/).forEach(function(attributeName) {
+                oneNewText.setAttribute(attributeName, translation);
+            });
             return;
         }
 
