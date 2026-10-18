@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Pattern [n°3] — Ryoji Ikeda</title>
-    <meta name="description" content="Découvrez l'œuvre Test Pattern [n°3] de Ryoji Ikeda, une expérience audiovisuelle immersive qui explore le langage binaire et la perception humaine.">
-    <meta property="og:site_name" content="L'œuvre Test Pattern [n°3] de Ryoji Ikeda">
-    <meta property="og:title" content="Test Pattern [n°3] — Ryoji Ikeda">
-    <meta property="og:description" content="Découvrez l'œuvre Test Pattern [n°3] de Ryoji Ikeda, une expérience audiovisuelle immersive qui explore le langage binaire et la perception humaine.">
+    <title data-i18n="page_title">Test Pattern [n°3] — Ryoji Ikeda</title>
+    <meta name="description" data-i18n="meta_description" data-i18n-attr="content" content="Découvrez l'œuvre Test Pattern [n°3] de Ryoji Ikeda, une expérience audiovisuelle immersive qui explore le langage binaire et la perception humaine.">
+    <meta property="og:site_name" data-i18n="og_site_name" data-i18n-attr="content" content="L'œuvre Test Pattern [n°3] de Ryoji Ikeda">
+    <meta property="og:title" data-i18n="page_title" data-i18n-attr="content" content="Test Pattern [n°3] — Ryoji Ikeda">
+    <meta property="og:description" data-i18n="meta_description" data-i18n-attr="content" content="Découvrez l'œuvre Test Pattern [n°3] de Ryoji Ikeda, une expérience audiovisuelle immersive qui explore le langage binaire et la perception humaine.">
     <meta property="og:type" content="website(quel type de projet, application, website)">
     <meta property="og:url" content="https://www.ninongossiaux1.be/">
     <meta property="og:image" content="https://www.ninongossiaux.be/projets/testPattern/assets/images/partage.jpg">
@@ -23,7 +23,7 @@
 <body>
     <header class="header">
         <nav class="navigation navigation--home">
-            <button class="menu__toggle" aria-label="Ouvrir le menu" type="button">
+            <button class="menu__toggle" aria-label="Ouvrir le menu" data-i18n="menu_open_label" data-i18n-attr="aria-label" type="button">
                 <svg class="icon icon--home" width="42" height="44" viewBox="0 0 42 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M39.0833 44H25.6667V32.2902C25.6667 31.0492 25.175 29.859 24.2998 28.9814C23.4247 28.1039 22.2377 27.6109 21 27.6109C19.7623 27.6109 18.5753 28.1039 17.7002 28.9814C16.825 29.859 16.3333 31.0492 16.3333 32.2902V44H2.91667C1.30667 44 0 42.6898 0 41.0755V19.2819L18.97 0.833907C19.5113 0.299523 20.2404 0 21 0C21.7596 0 22.4887 0.299523 23.03 0.833907L42 19.2819V41.0755C42 42.6898 40.6933 44 39.0833 44ZM29.1667 40.4906H38.5V20.7558L21 3.74674L3.5 20.7675V40.5023H12.8333V32.3019C12.8333 27.7864 16.4967 24.1132 21 24.1132C25.5033 24.1132 29.1667 27.7864 29.1667 32.3019V40.5023V40.4906Z" fill="white"/>
                 </svg>
@@ -37,7 +37,7 @@
             <div class="current-nav-title">[01] L’OEUVRE</div>
 
             <div class="language-picker language-picker--header">
-                <select name="language" id="language_select" class="language-select">
+                <select name="language" id="language_select" class="language-select" aria-label="Choisir la langue" data-i18n="language_label" data-i18n-attr="aria-label">
                     <option value="french">FR</option>
                     <option value="english">EN</option>
                     <option value="dutch">NL</option>
@@ -50,10 +50,10 @@
         <div class="menu" id="fullpage-menu" aria-hidden="true">
             <div class="menu__header">
                 <div class="menu__qr" role="button" tabindex="0" aria-label="Fermer le menu" title="Fermer le menu">
-                    <img class="menu__qr-img" src="assets/images/scan.png" alt="QR Code pour la version smartphone">
+                    <img class="menu__qr-img" src="assets/images/scan.png" alt="QR Code pour la version smartphone" data-i18n="qr_alt" data-i18n-attr="alt">
                     <p class="menu__qr-text" data-i18n="qr_text">Visualisez sur votre<br>smartphone</p>
                 </div>
-                <button class="menu__close" aria-label="Fermer le menu" type="button">
+                <button class="menu__close" aria-label="Fermer le menu" data-i18n="menu_close_label" data-i18n-attr="aria-label" type="button">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 7L29 29M29 7L7 29" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
                     </svg>
@@ -313,17 +313,19 @@
                     <!-- Le formulaire laisse le navigateur gérer la validation et la soumission par Entrée. -->
                     <form class="binary-form is-visible">
                         <label class="binary-form__label">
-                            Transformez un mot en code-barres:
+                            <span data-i18n="experience_prompt">Transformez un mot en code-barres:</span>
                             <input
                                 class="binary-form__input"
                                 name="word"
                                 type="text"
-                                placeholder="..."
+                                placeholder="Votre mot"
+                                data-i18n="experience_input_placeholder"
+                                data-i18n-attr="placeholder"
                                 autocomplete="off"
                                 required
                             >
                         </label>
-                        <button class="binary-form__submit" type="submit">Ok</button>
+                        <button class="binary-form__submit" type="submit" data-i18n="experience_submit">OK</button>
                     </form>
 
                     <!-- Cette région reste réservée aux erreurs de validation, jamais à l'état des animations. -->
@@ -333,7 +335,7 @@
                     <div class="binary-barcode is-hidden" aria-hidden="true" hidden></div>
 
                     <!-- Le bouton apparaît seul, après la fin du premier défilement. -->
-                    <button class="binary-add-button is-hidden" type="button" hidden>
+                    <button class="binary-add-button is-hidden" type="button" data-i18n="experience_add" hidden>
                         Ajouter ma partie au code-barres général
                     </button>
 
@@ -343,7 +345,7 @@
             </div>
         </dialog>
 
-        <dialog class="warning-popup" aria-label="Avertissement sur les flashs lumineux">
+        <dialog class="warning-popup" aria-label="Avertissement sur les flashs lumineux" data-i18n="warning_dialog_label" data-i18n-attr="aria-label">
             <div class="warning-popup__content">
                 <h2 class="warning-popup__title" data-i18n="warning_title">Avertissement</h2>
                 <p class="warning-popup__message" data-i18n="warning_message">Cette œuvre d’art comporte des flashs lumineux susceptibles de déclencher des crises chez les personnes atteintes d’épilepsie photosensible.</p>
@@ -351,7 +353,7 @@
             </div>
         </dialog>
 
-        <dialog class="warning-popup inactivity-popup" aria-label="Vérification de présence">
+        <dialog class="warning-popup inactivity-popup" aria-label="Vérification de présence" data-i18n="inactivity_dialog_label" data-i18n-attr="aria-label">
             <div class="warning-popup__content inactivity-popup__content">
                 <h2 class="warning-popup__title" data-i18n="inactivity_title">Êtes-vous toujours là ?</h2>
                 <p class="warning-popup__message" data-i18n="inactivity_message">Vous allez être redirigé vers l’accueil dans 10 secondes.</p>

@@ -2,6 +2,15 @@
 
 // Cette mémoire vit pendant toute la session et n'est pas effacée au reset.
 let generalBinaryCode = '';
+let interactionTranslations = {};
+
+document.addEventListener('site:translationschanged', (event) => {
+  interactionTranslations = event.detail;
+});
+
+function getTranslation(key, fallback) {
+  return interactionTranslations[key] || fallback;
+}
 
 // Temps de défilement en millisecondes pour chaque barre binaire; augmentez cette valeur pour ralentir.
 const barcodeBitDurationMs = 50;
@@ -230,9 +239,10 @@ if (binaryForm) {
 
     // L'attribut HTML « required » bloque une chaîne vide, mais pas une saisie composée d'espaces.
     if (!word) {
-      wordInput.setCustomValidity('Veuillez saisir un mot.');
+      const emptyWordMessage = getTranslation('empty_word_error', 'Veuillez saisir un mot.');
+      wordInput.setCustomValidity(emptyWordMessage);
       wordInput.reportValidity();
-      message.textContent = 'Veuillez saisir un mot.';
+      message.textContent = emptyWordMessage;
       return;
     }
 
