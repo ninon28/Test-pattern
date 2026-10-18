@@ -9,6 +9,9 @@
     "experience_label": "Experience",
     "experience_title": "Interactive experience",
     "experience_close": "Close",
+    "warning_title": "Warning",
+    "warning_message": "This artwork contains flashing lights that may trigger seizures in people with photosensitive epilepsy.",
+    "warning_confirm": "I understand",
 
     "button_previous": "Previous",
     "button_next": "Next",

@@ -1,5 +1,7 @@
 "use strict";
 
+import "./warning.js";
+
 const body = document.body;
 const navigation = document.querySelector(".navigation");
 const menuToggle = document.querySelector(".menu__toggle");
@@ -161,7 +163,7 @@ document.addEventListener("click", function(event) {
         return;
     }
 
-    if (event.target.closest(".navigation, .menu, .experience-launch, .experience-overlay")) {
+    if (event.target.closest(".navigation, .menu, .experience-launch, .experience-overlay, .warning-popup")) {
         return;
     }
 

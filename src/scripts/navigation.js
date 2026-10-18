@@ -144,7 +144,7 @@ function showSection(index) {
 }
 
 document.addEventListener("click", function(event) {
-    if (homeScreen.hidden || event.target.closest(".navigation, .menu, .experience-launch, .experience-overlay")) {
+    if (homeScreen.hidden || event.target.closest(".navigation, .menu, .experience-launch, .experience-overlay, .warning-popup")) {
         return;
     }
 

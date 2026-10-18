@@ -9,6 +9,9 @@
     "experience_label": "Erlebnis",
     "experience_title": "Interaktives Erlebnis",
     "experience_close": "Schließen",
+    "warning_title": "Warnung",
+    "warning_message": "Dieses Kunstwerk enthält Lichtblitze, die bei Menschen mit lichtempfindlicher Epilepsie Anfälle auslösen können.",
+    "warning_confirm": "Ich habe verstanden",
 
     "button_previous": "Zurück",
     "button_next": "Weiter",
