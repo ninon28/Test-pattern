@@ -2,6 +2,22 @@
     padding: $margin;
     box-sizing: border-box;
 
+    &--with-image {
+        position: relative;
+        overflow: hidden;
+        padding-right: calc(46% + #{$margin});
+
+        > img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 46%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
     h2 {
         font-size: $font-size-title;
         font-weight: 900;
@@ -164,7 +180,6 @@
 
     .section__controls {
         margin-top: auto;
-        padding-top: 37px;
     }
 }
 
