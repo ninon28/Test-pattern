@@ -61,6 +61,9 @@ let currentIndex = 0;
 
 function showHome() {
     currentIndex = 0;
+    if (navigation) {
+        navigation.classList.add("navigation--home");
+    }
     sections.forEach(function(section) {
         section.classList.remove("section-active");
     });
@@ -114,6 +117,10 @@ function updateCurrentNavTitle(index) {
 }
 
 function showSection(index) {
+    if (navigation) {
+        navigation.classList.remove("navigation--home");
+    }
+
     homeScreen.hidden = true;
     currentTitleDisplay.hidden = false;
 

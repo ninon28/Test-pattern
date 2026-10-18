@@ -72,6 +72,10 @@ function updateCurrentNavTitle(index) {
 
 function showHome() {
     currentIndex = 0;
+    if (navigation) {
+        navigation.classList.add("navigation--home");
+    }
+
     sections.forEach(function(section) {
         section.classList.remove("section-active");
     });
@@ -96,6 +100,9 @@ function showSection(index) {
     }
 
     currentIndex = index;
+    if (navigation) {
+        navigation.classList.remove("navigation--home");
+    }
 
     if (homeScreen) {
         homeScreen.hidden = true;
