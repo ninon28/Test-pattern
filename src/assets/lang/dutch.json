@@ -12,6 +12,10 @@
     "warning_title": "Waarschuwing",
     "warning_message": "Dit kunstwerk bevat lichtflitsen die aanvallen kunnen veroorzaken bij mensen met lichtgevoelige epilepsie.",
     "warning_confirm": "Ik begrijp het",
+    "inactivity_title": "Bent u er nog?",
+    "inactivity_message": "U keert over 10 seconden terug naar het startscherm.",
+    "inactivity_stay": "Ik ben er nog",
+    "inactivity_home": "Terug naar start",
 
     "button_previous": "Vorige",
     "button_next": "Volgende",

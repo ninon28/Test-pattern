@@ -84,3 +84,31 @@ body.warning-open .navigation {
 body.warning-open .language-picker--header {
     pointer-events: auto;
 }
+
+.inactivity-popup{
+    &__home{
+        background-color: $c-white;
+        color: $c-black;
+    }
+
+    &__actions{
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: $space-btw-text;
+        width: 100%;
+
+        .warning-popup__confirm {
+            align-self: auto;
+        }
+    }
+}
+
+body.inactivity-open .navigation {
+    z-index: 1001;
+    pointer-events: none;
+}
+
+body.inactivity-open .language-picker--header {
+    pointer-events: auto;
+}

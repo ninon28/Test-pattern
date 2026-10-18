@@ -12,6 +12,10 @@
     "warning_title": "Warnung",
     "warning_message": "Dieses Kunstwerk enthält Lichtblitze, die bei Menschen mit lichtempfindlicher Epilepsie Anfälle auslösen können.",
     "warning_confirm": "Ich habe verstanden",
+    "inactivity_title": "Sind Sie noch da?",
+    "inactivity_message": "Sie kehren in 10 Sekunden zum Startbildschirm zurück.",
+    "inactivity_stay": "Ich bin noch da",
+    "inactivity_home": "Zurück zum Start",
 
     "button_previous": "Zurück",
     "button_next": "Weiter",

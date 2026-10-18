@@ -12,6 +12,10 @@
     "warning_title": "Warning",
     "warning_message": "This artwork contains flashing lights that may trigger seizures in people with photosensitive epilepsy.",
     "warning_confirm": "I understand",
+    "inactivity_title": "Are you still there?",
+    "inactivity_message": "You will be returned to the home screen in 10 seconds.",
+    "inactivity_stay": "I'm still here",
+    "inactivity_home": "Return to home",
 
     "button_previous": "Previous",
     "button_next": "Next",

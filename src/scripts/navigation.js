@@ -1,5 +1,7 @@
 "use strict";
 
+import { initInactivity } from "./inactivity.js";
+
 const body = document.querySelector("body");
 const navigation = document.querySelector(".navigation");
 const menuToggle = document.querySelector(".menu__toggle");
@@ -158,6 +160,7 @@ finishButton.addEventListener("click", function(event) {
 });
 
 showHome();
+initInactivity(showHome);
 
 nextButtons.forEach(function(button) {
     button.addEventListener("click", function() {

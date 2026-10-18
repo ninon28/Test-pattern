@@ -12,6 +12,10 @@
     "warning_title": "Avertissement",
     "warning_message": "Cette œuvre d’art comporte des flashs lumineux susceptibles de déclencher des crises chez les personnes atteintes d’épilepsie photosensible.",
     "warning_confirm": "J’ai compris",
+    "inactivity_title": "Êtes-vous toujours là ?",
+    "inactivity_message": "Vous allez être redirigé vers l’accueil dans 10 secondes.",
+    "inactivity_stay": "Je suis toujours là",
+    "inactivity_home": "Revenir à l’accueil",
 
     "button_previous": "Précédent",
     "button_next": "Suivant",
