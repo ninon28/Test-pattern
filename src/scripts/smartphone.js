@@ -1,7 +1,5 @@
 "use strict";
 
-import "./warning.js";
-
 const body = document.body;
 const navigation = document.querySelector(".navigation");
 const menuToggle = document.querySelector(".menu__toggle");
@@ -259,3 +257,4 @@ if (optionsLanguage) {
 
 setMenuOpen(false);
 showHome();
+initInactivity(showHome);
