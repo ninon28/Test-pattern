@@ -59,7 +59,9 @@ main {
 
     .home-screen__author {
         position: absolute;
+
         top: calc(40% - 16.4vw - 72px);
+
         left: 50%;
         width: calc(100% - 64px);
         transform: translateX(-50%);

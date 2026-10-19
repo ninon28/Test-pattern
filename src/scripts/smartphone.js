@@ -257,4 +257,3 @@ if (optionsLanguage) {
 
 setMenuOpen(false);
 showHome();
-initInactivity(showHome);
