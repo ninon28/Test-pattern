@@ -98,6 +98,10 @@ if (binaryForm) {
    * @param {HTMLElement} element Élément à afficher.
    */
   function showElement(element) {
+    if (element.classList.contains('binary-barcode')) {
+      element.setAttribute('aria-hidden', 'true');
+    }
+
     element.hidden = false;
     element.classList.remove('is-visible');
     element.classList.add('is-hidden');
@@ -130,6 +134,9 @@ if (binaryForm) {
         element.removeEventListener('transitionend', handleTransitionEnd);
         window.clearTimeout(timeoutId);
         element.hidden = true;
+        if (element.classList.contains('binary-barcode')) {
+          element.removeAttribute('aria-hidden');
+        }
         resolve();
       };
 
