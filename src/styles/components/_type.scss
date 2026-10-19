@@ -59,15 +59,13 @@ main {
 
     .home-screen__author {
         position: absolute;
-        top: calc(50% - 16.4vw - 72px);
+        top: calc(40% - 16.4vw - 72px);
         left: 50%;
         width: calc(100% - 64px);
         transform: translateX(-50%);
         margin: 0;
-        font-size: $font-size-subtitle;
-        font-weight: 400;
-        color: #707070;
-        text-transform: uppercase;
+        font-size: $font-size-title;
+        color: $c-black;
     }
 }
 
