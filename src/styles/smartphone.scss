@@ -55,13 +55,14 @@ main {
 
     .home-screen__author {
         position: absolute;
-        top: calc(50% - 34.1vw - 40px);
+        top: calc(50% - 34.1vw - 80px);
         left: 50%;
         width: calc(100% - 64px);
         transform: translateX(-50%);
         margin: 0;
         font-size: $font-size-subtitle-tel;
         font-weight: 400;
+        color: #707070;
         text-transform: uppercase;
     }
 }
